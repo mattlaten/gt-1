@@ -30,7 +30,19 @@
 }
 \maketitle
 
-\section{Question 1}
+\subsection{1.2 d)}
+Firstly, we notice that to get from $Q_{t-1}$ to $Q_t$, we take the cartesian
+product of $Q_{t-1}$ with $K_2$. This results in the number of vertices in
+$Q_{t-1}$ being doubled. Since $Q_1 = K_1$ and the order of $Q_1$ is 2, we have
+that the order of $Q_t$ is given by $2 \times 2 \times ... \times 2$ $t$ times,
+or rather $ord(Q_t) = 2^t$.
 
-
+To compute the size of $Q_t$, we interpret each vertex as a t-digit binary
+string, which is adjacent to every binary string which differs from it by
+exactly one place. Further, we notice that each vertex has degree $t$. Thus,
+the sum of the degrees of $Q_t$ is given by
+\begin{equation}
+    \sum_{v \in V(Q_t)} deg(v) = t\cdot2^t
+\end{equation}
+Thus, the size is $\frac{t\cdot2^t}{2} = t\cdot2^t$.
 \end{document}
