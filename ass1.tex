@@ -30,7 +30,7 @@
 }
 \maketitle
 
-\subsection{1.2 d)}
+\textbf{1.2 d)}
 Firstly, we notice that to get from $Q_{t-1}$ to $Q_t$, we take the cartesian
 product of $Q_{t-1}$ with $K_2$. This results in the number of vertices in
 $Q_{t-1}$ being doubled. Since $Q_1 = K_1$ and the order of $Q_1$ is 2, we have
@@ -45,4 +45,19 @@ the sum of the degrees of $Q_t$ is given by
     \sum_{v \in V(Q_t)} deg(v) = t\cdot2^t
 \end{equation}
 Thus, the size is $\frac{t\cdot2^t}{2} = t\cdot2^t$.
+
+\textbf{1.4)}
+We are looking for a graph which is cubic or 3-regular with order 7. However,
+we know that the sum of the degrees for a graph has to be even. If such a graph
+were to exist, the sum of the degrees would be $3 \times 7 = 21$ which is odd. 
+Hence, no such graph exists.
+
+\textbf{1.5)}
+For a graph of degree $n$, the possible degrees a vertex in the graph can have
+are $n-1, n-2, ..., 1, 0$. For an irregular such graph, each vertex must have
+a distinct degree, and so each degree must be used exactly once. Thus, we get that
+the vertex with degree $n-1$ must be adjacent to all other vertices, including
+the vertex of degree $0$. The only situation where this is possible, is if
+$n-1 = 0 \Rightarrow n = 1$ so there is only 1 vertex i.e. the graph is trivial.
+
 \end{document}
