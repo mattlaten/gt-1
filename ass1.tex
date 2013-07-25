@@ -140,13 +140,8 @@ Hence $f(N(v)) = N(f(v))$. Then
 
 where the equation $|f(N(v))| = |N(v)|$ holds since $f$ is a bijection.
 
-\subsubsection*{a)} 
+\subsubsection*{b)} 
 This is false. A counterexample is:
-
-
-\subsubsection*{a)}
-
-\subsubsection*{b)}
 
 \begin{tikzpicture}
     \SetGraphUnit{2}
@@ -168,8 +163,19 @@ This is false. A counterexample is:
     \Edges(F, G, H, I, J)
 \end{tikzpicture}
 
+\subsection*{1.9}
 
-\subsection*{1.9 c)}
+\subsubsection*{c)}
+
+The degree sequence, $S=3,3,2,2,2,2,1,1$ does represent a graph. We show this using the Havel-Hakimi theorem. This is done as follows
+\begin{eqnarray*}
+    &3,3,2,2,2,2,1,1&\\
+    \text{remove 3} &2,1,1,2,2,1,1& \\ 
+    \text{rearrange} &2,2,2,1,1,1,1& \\ 
+    \text{remove 2} &1,1,1,1,1,1&
+\end{eqnarray*}
+
+This final line represents a 1-regular graph with 6 vertices, so we can conclude that, by the Havel-Hakimi theorem, the initial degree sequence was graphical. The graph which they represent is depicted below.
 
 \begin{tikzpicture}
     \SetGraphUnit{2}
@@ -187,7 +193,18 @@ This is false. A counterexample is:
     \Edges(H, F, G)    
 \end{tikzpicture}
 
-\subsection*{1.9 d)}
+\subsubsection*{d)}
+
+The degree sequence, $S=7,4,3,3,2,2,2,1,1,1$ does represent a graph. We show this using the Havel-Hakimi theorem. This is done as follows
+\begin{eqnarray*}
+    &7,4,3,3,2,2,2,1,1,1&\\
+    \text{remove 7} &3,2,2,1,1,1,0,1,1& \\ 
+    \text{rearrange} &3,2,2,1,1,1,1,1& \\ 
+    \text{remove 3} &1,1,0,1,1,1,1& \\
+    \text{rearrange} &1,1,1,1,1,1& \\
+\end{eqnarray*}
+
+This final line represents a 1-regular graph with 6 vertices, so we can conclude that, by the Havel-Hakimi theorem, the initial degree sequence was graphical. The graph which they represent is depicted below.
 
 \begin{tikzpicture}
     \SetGraphUnit{2}
