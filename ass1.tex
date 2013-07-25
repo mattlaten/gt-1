@@ -4,6 +4,7 @@
 \usepackage{url,parskip}			%formatting
 \usepackage{tikz}
 \usepackage{tkz-graph}
+\usepackage{amsmath}
 
 %better formatting of the A4 page
 \usepackage{fullpage}
@@ -41,15 +42,15 @@ or rather $ord(Q_t) = 2^t$.
 
 To compute the size of $Q_t$, we interpret each vertex as a t-digit binary
 string, which is adjacent to every binary string which differs from it by
-exactly one place. Further, we notice that each vertex has degree $t$. Thus,
-the sum of the degrees of $Q_t$ is given by
+exactly one place. Thus each vertex has degree $t$, the number of possible digits to vary.
+Thus, the sum of the degrees of $Q_t$ is given by
 \begin{equation}
     \sum_{v \in V(Q_t)} deg(v) = t\cdot2^t
 \end{equation}
-Thus, the size is $\frac{t\cdot2^t}{2} = t\cdot2^t$.
+Thus, the size is $\frac{t\cdot2^t}{2} = t\cdot2^{t-1}$.
 
 \subsection*{1.4}
-We are looking for a graph which is cubic or 3-regular with order 7. However,
+We are looking for a graph which is cubic (3-regular) with order 7. However,
 we know that the sum of the degrees for a graph has to be even. If such a graph
 were to exist, the sum of the degrees would be $3 \times 7 = 21$ which is odd. 
 Hence, no such graph exists.
@@ -63,6 +64,32 @@ the vertex of degree $0$. The only situation where this is possible, is if
 $n-1 = 0 \Rightarrow n = 1$ so there is only 1 vertex i.e. the graph is trivial.
 
 \subsection*{1.6}
+
+We start by noting that the possible handshake counts are 6, 5, 4, 3, 2, 1 and 0.
+Each of these must be used once, and one number will be duplicated (my handshake count).
+
+
+If we start by considering the order 6, we note that this person must shake hands with every
+other guest (except his/her spouse). Then every other guest has degree $\geq 1$ and the only
+candidate for 6's wife is 0. No other guest can shake 6 hands as they would need to shake hands
+with 0, and no other guest can shake 0 hands as they have non-zero degree. We thus refer to these two people 
+as ``6'' and ``0'' as they're definitely unique.
+
+In the same spirit, we choose another random guest to have degree 5. This person has shaken hands
+with 6, and cannot shake hands with 0 or his/her own spouse. Then he/she must connect to every person except 0.
+Then, every person he/she shakes hands with must now have degree $\geq 2$. Then, the only candidate that could
+possibly have degree 1 is 5's wife. No other guest can shake 5 hands as they would need to shake hands
+with 0 or 1, then increasing these degrees, and no other guest can shake 1 hand as they have degree $\geq 2$. 
+We thus refer to these two people as ``5'' and ``1'' as they're definitely unique.
+
+We then choose a guest to have degree 4. This person cannot shake hands with 0, 1 or his/her own spouse. He/she
+must then shake hands with 5, 6 and both remaining (as yet unnumbered) guests. This would increase those guests'
+degrees by 1, so that they both have degree $geq 3$. The only guest left able to have degree 2 is 4's spouse.
+Again, we know 4 is unique, as the not-yet-numbered vertices would need to shake hands with one of the already 
+numbered vertices to increase their degree, which is not allowed, and they cannot shake hands with each other
+as they are married.
+
+Thus, the remaining two vertices both have degree 3.
 
 \begin{tikzpicture}
     \SetGraphUnit{2}
@@ -80,15 +107,43 @@ $n-1 = 0 \Rightarrow n = 1$ so there is only 1 vertex i.e. the graph is trivial.
     \Edges(4, 3A, 4, 3B)
 \end{tikzpicture}
 
+\subsubsection*{1.6 a}
+If I had a unique degree, then the answers I heard would have contained two 3s. Thus, I must be one of the 3s.
+\subsubsection*{1.6 b}
+Since we know the two 3s are married, my wife is the other 3.
+
 \subsection*{1.7}
 In order to prove this, we do a case distinction:\newline
 \emph{Case r = 0:}
 
 \subsection*{1.8}
 \subsubsection*{a)} 
-Our claim is that if two graphs G, H are isomorphic, then they have the same degree sequence.
-In other words, $deg v = deg f(v)\ \forall v \in V(G)$ where $f:V(G) \rightarrow V(H)$ is an
-isomorphism. 
+We need to show that if two graphs $G$ and $H$ are isomorphic, then they have the same degree sequence.
+Let $f : V(G) \to V(H)$ be an isomorphism. We show that, for all $v \in V(G)$, $\mathrm{deg}_G(v) = \mathrm{deg}_H(f(v))$.
+
+We have, for all $w \in V(H), v \in V(G)$,
+
+\begin{align*}
+w \in f(N(v)) &\Leftrightarrow f^{-1}(w)v \in E(G)\\
+              &\Leftrightarrow wf(v) \in E(H)\\
+              &\Leftrightarrow w \in N(f(v))
+\end{align*}
+
+Hence $f(N(v)) = N(f(v))$. Then
+
+\begin{align*}
+\mathrm{deg}_H(f(v)) &= |N(f(v))|\\
+                     &= |f(N(v))|\\
+                     &= |N(v)|\\
+                     &= \mathrm{deg}_G(v)
+\end{align*}
+
+where the equation $|f(N(v))| = |N(v)|$ holds since $f$ is a bijection.
+
+\subsubsection*{a)} 
+This is false. A counterexample is:
+
+
 
 \subsection*{1.9 c)}
 
