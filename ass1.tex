@@ -87,7 +87,7 @@ In order to prove this, we do a case distinction:\newline
 \subsection*{1.8}
 \subsubsection*{a)} 
 Our claim is that if two graphs G, H are isomorphic, then they have the same degree sequence.
-In other words, $deg v = deg f(v)\ \forall v \in V(G)$ where $f:V(G) \rightarrow V(H)$ is an
+In other words, $deg\ v = deg\ f(v)\ \forall v \in V(G)$ where $f:V(G) \rightarrow V(H)$ is an
 isomorphism. 
 
 \subsection*{1.9 c)}
@@ -392,6 +392,27 @@ $C_5 \times K_1$
 \end{tikzpicture}
 
 \subsection*{1.17}
+If $G$ and $\bar G$ are both $r$-regular where $r \geq 0$, we want to
+show that the order of $G$ is odd.  First we notice that
+\begin{equation} 
+    \sum_{v \in V(G)} deg_G(v) = n \cdot r = 2m   
+\end{equation}
+Next we see that
+\begin{equation} 
+    \sum_{v \in V(\bar G)} deg_{\bar G}(v) = n \cdot r = 2m   
+\end{equation}
+However
+\begin{eqnarray*} 
+    &\sum_{v \in V(\bar G)} ((n-1) - deg_G(V))\\
+    &n(n-1) - nr = nr\\
+    &\Rightarrow n(n-1) = 2nr\\
+    &\Rightarrow n-1 = 2r\\
+    &\Rightarrow n-1\ is\ even\\
+    &\Rightarrow n\ is\ odd\\
+\end{eqnarray*}
+
+
+
 
 \subsection*{1.18 b)}
 If $G$ is a self-complementary graph of order $n$, this means that $G \cup \bar G = K_n$.
