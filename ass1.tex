@@ -140,12 +140,42 @@ Hence $f(N(v)) = N(f(v))$. Then
 
 where the equation $|f(N(v))| = |N(v)|$ holds since $f$ is a bijection.
 
-\subsubsection*{a)} 
+\subsubsection*{b)} 
 This is false. A counterexample is:
 
+\begin{tikzpicture}
+    \SetGraphUnit{2}
+    \GraphInit[vstyle=Normal]
+    \Vertex[x=0,y=2,L=2]{A}
+    \Vertex[x=1,y=4,L=2]{B}
+    \Vertex[x=2,y=2,L=2]{C}
+    \Vertex[x=0,y=0,L=1]{D}
+    \Vertex[x=2,y=0,L=1]{E}
+    
+    \Vertex[x=4,y=2,L=1]{F}
+    \Vertex[x=5,y=2,L=2]{G}
+    \Vertex[x=6,y=2,L=2]{H}
+    \Vertex[x=7,y=2,L=2]{I}
+    \Vertex[x=8,y=2,L=1]{J}
+    
+    \Edges(A, B, C, A)
+    \Edge[](D)(E)
+    \Edges(F, G, H, I, J)
+\end{tikzpicture}
 
+\subsection*{1.9}
 
-\subsection*{1.9 c)}
+\subsubsection*{c)}
+
+The degree sequence, $S=3,3,2,2,2,2,1,1$ does represent a graph. We show this using the Havel-Hakimi theorem. This is done as follows
+\begin{eqnarray*}
+    &3,3,2,2,2,2,1,1&\\
+    \text{remove 3} &2,1,1,2,2,1,1& \\ 
+    \text{rearrange} &2,2,2,1,1,1,1& \\ 
+    \text{remove 2} &1,1,1,1,1,1&
+\end{eqnarray*}
+
+This final line represents a 1-regular graph with 6 vertices, so we can conclude that, by the Havel-Hakimi theorem, the initial degree sequence was graphical. The graph which they represent is depicted below.
 
 \begin{tikzpicture}
     \SetGraphUnit{2}
@@ -163,7 +193,18 @@ This is false. A counterexample is:
     \Edges(H, F, G)    
 \end{tikzpicture}
 
-\subsection*{1.9 d)}
+\subsubsection*{d)}
+
+The degree sequence, $S=7,4,3,3,2,2,2,1,1,1$ does represent a graph. We show this using the Havel-Hakimi theorem. This is done as follows
+\begin{eqnarray*}
+    &7,4,3,3,2,2,2,1,1,1&\\
+    \text{remove 7} &3,2,2,1,1,1,0,1,1& \\ 
+    \text{rearrange} &3,2,2,1,1,1,1,1& \\ 
+    \text{remove 3} &1,1,0,1,1,1,1& \\
+    \text{rearrange} &1,1,1,1,1,1& \\
+\end{eqnarray*}
+
+This final line represents a 1-regular graph with 6 vertices, so we can conclude that, by the Havel-Hakimi theorem, the initial degree sequence was graphical. The graph which they represent is depicted below.
 
 \begin{tikzpicture}
     \SetGraphUnit{2}
@@ -204,7 +245,19 @@ Any permutation on $V(\overline{K_n})$ is an automorphism. Let $f$ be some permu
 
 There are therefore $n!$ automorphisms.
 
+<<<<<<< HEAD
 \subsection*{1.13}
+=======
+Theorem: If G is a digraph of size $m$, then
+\begin{align*} 
+    \sum_{v \in V(G)} id(v) = m\\
+    \sum_{v \in V(G)} od(v) = m\\
+\end{align*}
+
+Proof: We notice that when we compute the sum of in-degrees, we count
+each arc exactly once. Hence, we get a value of m for the sum of the in-degrees.
+Similiarly with out-degrees, we count each arc once.
+>>>>>>> 263973e30c69f9f3c59a928a801d08350662c3f6
 
 \subsection*{1.15}
 
