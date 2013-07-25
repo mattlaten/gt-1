@@ -144,30 +144,6 @@ where the equation $|f(N(v))| = |N(v)|$ holds since $f$ is a bijection.
 This is false. A counterexample is:
 
 
-\subsubsection*{a)}
-
-\subsubsection*{b)}
-
-\begin{tikzpicture}
-    \SetGraphUnit{2}
-    \GraphInit[vstyle=Normal]
-    \Vertex[x=0,y=2,L=2]{A}
-    \Vertex[x=1,y=4,L=2]{B}
-    \Vertex[x=2,y=2,L=2]{C}
-    \Vertex[x=0,y=0,L=1]{D}
-    \Vertex[x=2,y=0,L=1]{E}
-    
-    \Vertex[x=4,y=2,L=1]{F}
-    \Vertex[x=5,y=2,L=2]{G}
-    \Vertex[x=6,y=2,L=2]{H}
-    \Vertex[x=7,y=2,L=2]{I}
-    \Vertex[x=8,y=2,L=1]{J}
-    
-    \Edges(A, B, C, A)
-    \Edge[](D)(E)
-    \Edges(F, G, H, I, J)
-\end{tikzpicture}
-
 
 \subsection*{1.9 c)}
 
@@ -213,13 +189,21 @@ This is false. A counterexample is:
 
 \subsection*{1.12} 
 \subsubsection*{a)}
-The path $P_n$ has only two automorphisms. Label the vertices $v_1, v_2, \dots, v_n$ such that $v_i$ is adjacent to $v_j$ if and only if $i = j+1$ or $j = i+1$. Then the two automorphisms are the identity permutation and the function $g : V(P_n) \to V(P_n)$ given by $f(v_i) = v_{n - i + 1}$ (that is, the path is `flipped'). Let $f$ be an automorphism. By the result proved in 1.8a, $\mathrm{deg}(f(v_1)) = \mathrm{deg}(v_1) = 1$, so $f(v_1) = v_1$ or $v_n$. If $f(v_1) = v_1$, then since $v_1$ and $v_2$ are adjacent, $f(v_1)$ and $f(v_2)$ must be adjacent also, but $f(v_1) = v_1$, $f(v_2)$ can only be $v_2$. Continuing this procedure, we get that $f$ is the identity permutation. then since $v_1$ and $v_2$ are adjacent, $f(v_1)$ and $f(v_2)$ must be adjacent also, but $f(v_1) = v_n$, $f(v_2)$ can only be $v_{n-1}$. and by continuing this procedure, we get that $f = g$.
+The path $P_n$ has only two automorphisms. Label the vertices $v_1, v_2, \dots, v_n$ such that $v_i$ is adjacent to $v_j$ if and only if $i = j+1$ or $j = i+1$. Then the two automorphisms are the identity permutation and the function $g : V(P_n) \to V(P_n)$ given by $g(v_i) = v_{n - i + 1}$ (that is, the path is `flipped'). Let $f$ be an automorphism. By the result proved in 1.8a, $\mathrm{deg}(f(v_1)) = \mathrm{deg}(v_1) = 1$, so $f(v_1) = v_1$ or $v_n$. If $f(v_1) = v_1$, then since $v_1$ and $v_2$ are adjacent, $f(v_1)$ and $f(v_2)$ must be adjacent also. But $f(v_1) = v_1$, so $f(v_2)$ can only be $v_2$. Continuing this procedure, we get that $f$ is the identity permutation. If $f(v_1) = v_n$, then since $v_1$ and $v_2$ are adjacent, $f(v_1)$ and $f(v_2)$ must be adjacent also, but since $f(v_1) = v_n$, $f(v_2)$ can only be $v_{n-1}$. If we continue this procedure, we see that $f = g$.
 
 \subsubsection*{b)}
 
 
 \subsubsection*{c)}
+Any permutation on $V(K_n)$ is an automorphism. Let $f$ be some permutation. We have to show that $uv \in E(K_n)$ if and only if $f(u)f(v) \in E(K_n)$. But $ab \in E(K_n)$ if and only if $a \neq b$, and the equivalence holds since $f$ is a bijection.
+
+There are therefore $n!$ automorphisms.
+
 \subsubsection*{d)}
+Any permutation on $V(\overline{K_n})$ is an automorphism. Let $f$ be some permutation. We have to show that $uv \in E(\overline{K_n})$ if and only if $f(u)f(v) \in E(\overline{K_n})$. But $ab \in E(\overline{K_n})$ is false for all $a, b \in V(\overline{K_n})$, so both directions of the equivalence are vacuously true.
+
+There are therefore $n!$ automorphisms.
+
 \subsection*{1.13}
 
 \subsection*{1.15}
@@ -282,7 +266,6 @@ $G \times H$
     \Vertex[x=8,y=0]{1D}
     \Vertex[x=9,y=2]{1E}
     
-    \tikzset{EdgeStyle/.style = {ultra thick, color = red}}
     \Edge[style={bend right}](A)(1A)
     \Edge[style={bend right}](B)(1B)
     \Edge[style={bend left}](C)(1C)
@@ -479,31 +462,17 @@ $C_5 \times K_1$
 \end{tikzpicture}
 
 \subsection*{1.17}
-If $G$ and $\bar G$ are both $r$-regular where $r \geq 0$, we want to
-show that the order of $G$ is odd.  First we notice that
-\begin{equation} 
-    \sum_{v \in V(G)} deg_G(v) = n \cdot r = 2m   
-\end{equation}
-Next we see that
-\begin{equation} 
-    \sum_{v \in V(\bar G)} deg_{\bar G}(v) = n \cdot r = 2m   
-\end{equation}
-However
-\begin{eqnarray*} 
-    &\sum_{v \in V(\bar G)} ((n-1) - deg_G(V))\\
-    &n(n-1) - nr = nr\\
-    &\Rightarrow n(n-1) = 2nr\\
-    &\Rightarrow n-1 = 2r\\
-    &\Rightarrow n-1\ is\ even\\
-    &\Rightarrow n\ is\ odd\\
-\end{eqnarray*}
-
-
-
 
 \subsection*{1.18 b)}
-If $G$ is a self-complementary graph of order $n$, this means that $G \cup \bar G = K_n$.
-Thus, $size(G) = \frac{1}{2} size(K_n) = \frac{1}{4}n(n-1)$.
+Let $G$ be a self-complementary graph of order $n$. Since $G$ and $\overline{G}$ are isomorphic, they have the same size, say $m$. Hence
+\begin{align*}
+\sum_{v \in V(G)} \mathrm{deg}_G(v) &= \sum_{v \in V(\overline{G})} \mathrm{deg}_{\overline{G}}(v)\\
+\Rightarrow \quad \quad \quad \quad \quad 2m &= \sum_{v \in V(G)} ((n-1) - \mathrm{deg}_G(v))\\
+\Rightarrow \quad \quad \quad \quad \quad 2m &= n(n-1) - 2m\\
+\Rightarrow \quad \quad \quad \quad \quad 4m &= n(n-1)
+\end{align*}
+
+Hence $4$ divides $n(n-1)$. Since one of the factors $n$ and $(n-1)$ is odd, they cannot both have a factor of 2. Hence 4 divides either $n$ or $n-1$, i.e. $n \equiv 0 \pmod{4}$ or $n \equiv 1 \pmod{4}$.
 
 \subsection*{1.19}
 
@@ -547,25 +516,7 @@ Thus, $size(G) = \frac{1}{2} size(K_n) = \frac{1}{4}n(n-1)$.
 
 \subsubsection*{b)}
 
-Because $k$-subsets of $n$ exist the order of $J(n,k,r)$ is 
-
-\begin{equation}
-n \choose k
-\end{equation}
-
 \subsubsection*{c)}
-
-For a given vertex, we first choose $r$ elements which it will have in common and then, from the remaining elements choose $(k-r)$ extra elements to find a vertex which is adjacent to it. Each of these will be a unique choice. Thus each vertex has degree
-
-\begin{equation}
-    \mathrm{deg}(v) = {k \choose r} {n-k \choose k-r}
-\end{equation}
-
-and thus the graph is regular. The size of the graph is
-
-\begin{equation}
-n {k \choose r} {n-k \choose k-r}
-\end{equation}
 
 \subsubsection*{d)}
 
