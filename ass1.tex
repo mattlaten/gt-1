@@ -216,10 +216,14 @@ This is false. A counterexample is:
 \subsection*{1.13}
 
 Theorem: If G is a digraph of size $m$, then
-\begin{eqnarray} 
+\begin{align*} 
     \sum_{v \in V(G)} id(v) = m\\
     \sum_{v \in V(G)} od(v) = m\\
-\end{eqnarray}
+\end{align*}
+
+Proof: We notice that when we compute the sum of in-degrees, we count
+each arc exactly once. Hence, we get a value of m for the sum of the in-degrees.
+Similiarly with out-degrees, we count each arc once.
 
 \subsection*{1.15}
 
