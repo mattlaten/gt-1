@@ -144,6 +144,30 @@ where the equation $|f(N(v))| = |N(v)|$ holds since $f$ is a bijection.
 This is false. A counterexample is:
 
 
+\subsubsection*{a)}
+
+\subsubsection*{b)}
+
+\begin{tikzpicture}
+    \SetGraphUnit{2}
+    \GraphInit[vstyle=Normal]
+    \Vertex[x=0,y=2,L=2]{A}
+    \Vertex[x=1,y=4,L=2]{B}
+    \Vertex[x=2,y=2,L=2]{C}
+    \Vertex[x=0,y=0,L=1]{D}
+    \Vertex[x=2,y=0,L=1]{E}
+    
+    \Vertex[x=4,y=2,L=1]{F}
+    \Vertex[x=5,y=2,L=2]{G}
+    \Vertex[x=6,y=2,L=2]{H}
+    \Vertex[x=7,y=2,L=2]{I}
+    \Vertex[x=8,y=2,L=1]{J}
+    
+    \Edges(A, B, C, A)
+    \Edge[](D)(E)
+    \Edges(F, G, H, I, J)
+\end{tikzpicture}
+
 
 \subsection*{1.9 c)}
 
@@ -258,6 +282,7 @@ $G \times H$
     \Vertex[x=8,y=0]{1D}
     \Vertex[x=9,y=2]{1E}
     
+    \tikzset{EdgeStyle/.style = {ultra thick, color = red}}
     \Edge[style={bend right}](A)(1A)
     \Edge[style={bend right}](B)(1B)
     \Edge[style={bend left}](C)(1C)
@@ -454,6 +479,27 @@ $C_5 \times K_1$
 \end{tikzpicture}
 
 \subsection*{1.17}
+If $G$ and $\bar G$ are both $r$-regular where $r \geq 0$, we want to
+show that the order of $G$ is odd.  First we notice that
+\begin{equation} 
+    \sum_{v \in V(G)} deg_G(v) = n \cdot r = 2m   
+\end{equation}
+Next we see that
+\begin{equation} 
+    \sum_{v \in V(\bar G)} deg_{\bar G}(v) = n \cdot r = 2m   
+\end{equation}
+However
+\begin{eqnarray*} 
+    &\sum_{v \in V(\bar G)} ((n-1) - deg_G(V))\\
+    &n(n-1) - nr = nr\\
+    &\Rightarrow n(n-1) = 2nr\\
+    &\Rightarrow n-1 = 2r\\
+    &\Rightarrow n-1\ is\ even\\
+    &\Rightarrow n\ is\ odd\\
+\end{eqnarray*}
+
+
+
 
 \subsection*{1.18 b)}
 If $G$ is a self-complementary graph of order $n$, this means that $G \cup \bar G = K_n$.
@@ -501,7 +547,25 @@ Thus, $size(G) = \frac{1}{2} size(K_n) = \frac{1}{4}n(n-1)$.
 
 \subsubsection*{b)}
 
+Because $k$-subsets of $n$ exist the order of $J(n,k,r)$ is 
+
+\begin{equation}
+n \choose k
+\end{equation}
+
 \subsubsection*{c)}
+
+For a given vertex, we first choose $r$ elements which it will have in common and then, from the remaining elements choose $(k-r)$ extra elements to find a vertex which is adjacent to it. Each of these will be a unique choice. Thus each vertex has degree
+
+\begin{equation}
+    \mathrm{deg}(v) = {k \choose r} {n-k \choose k-r}
+\end{equation}
+
+and thus the graph is regular. The size of the graph is
+
+\begin{equation}
+n {k \choose r} {n-k \choose k-r}
+\end{equation}
 
 \subsubsection*{d)}
 
